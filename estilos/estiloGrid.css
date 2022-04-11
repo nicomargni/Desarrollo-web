@@ -1,0 +1,261 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Rowdies', cursive;
+    background-image: linear-gradient(to left, red, yellow)
+}
+
+/*------------------Grid y Flex-------------*/
+/*Index*/
+.gridContainer {
+    display: grid;
+    grid-template-areas: 'header header header'
+        'article left right'
+        'article left vault'
+        'animacion animacion animacion'
+        'footer footer footer';
+    gap: 10px;
+}
+
+.gridContainer>* {
+    border: 1px solid black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    grid-area: header;
+    text-align: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-image: url(../imagenes/header.png);
+    background-size: contain;
+}
+
+.header>* {
+    transform: rotate(-20deg);
+    transition: 2s;
+}
+
+.header>*:hover {
+    color: rgb(128, 83, 0);
+    transform: scale(1.2);
+}
+
+.article {
+    grid-area: article;
+    color: white;
+    text-align: left;
+    background-image: url(../imagenes/NoticiasVideojuegos.jpg);
+}
+
+.left {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    grid-area: left;
+    background-image: url(../imagenes/lanzRecientes.jpg);
+}
+
+.right {
+    grid-area: right;
+    background-image: url(../imagenes/reseñas.jpg);
+    background-size: contain;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: rgb(2, 92, 2);
+}
+
+.vaultBoy {
+    display: flex;
+    grid-area: vault;
+    background-image: url(../imagenes/vault-boy.jpg);
+    background-size: contain;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/*Galeria*/
+.galeriaContainer {
+    display: grid;
+    color: orange;
+    grid-template-areas: 'header'
+        'titulo'
+        'galeria'
+        'footer';
+}
+
+.tituloGaleria {
+    display: flex;
+    justify-content: center;
+    grid-area: titulo;
+    color: darkgreen;
+}
+
+.main {
+    grid-area: galeria;
+}
+
+.main>div {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 5px;
+    border: solid green;
+    width: 1000px;
+    background-color: orange;
+}
+
+.main,
+img {
+    width: 20%;
+    padding: 2px;
+}
+
+/*-----------------------------------------Contactanos---------------------------------------*/
+.contactoContainer {
+    display: grid;
+    grid-template-areas: 'header'
+        'formulario'
+        'footer';
+}
+
+.form {
+    grid-area: formulario;
+    border: solid green;
+}
+
+/*-----------------------------------------Comunidad-------------------------------------*/
+.comunidadContainer {
+    display: grid;
+    grid-template-areas: 'header header header'
+        'titulo titulo titulo'
+        'comuMain comuMain comuMain'
+        'instagram facebook twitter'
+        'footer footer footer';
+}
+
+.comunidadMain {
+    background-image: linear-gradient(to left, white, yellow);
+    border: 1px solid black;
+    grid-area: comuMain;
+}
+
+.instagram {
+    grid-area: instagram;
+    margin-top: 10px;
+    background-image: url(../imagenes/instagram.jpg);
+    background-size: cover;
+    width: 250px;
+    height: 250px;
+}
+
+.facebook {
+    grid-area: facebook;
+    margin-top: 10px;
+    background-image: url(../imagenes/facebook.png);
+    background-size: cover;
+    width: 250px;
+    height: 250px;
+}
+
+.twitter {
+    grid-area: twitter;
+    margin-top: 10px;
+    background-image: url(../imagenes/twitterlogo.png);
+    background-size: cover;
+    width: 300px;
+    height: 250px;
+}
+
+.tituloComunidad {
+    display: flex;
+    justify-content: center;
+    grid-area: titulo;
+}
+
+/* ----------------------------------------Animaciones------------------------------------*/
+
+.animaciones {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    grid-area: animacion;
+    border: none;
+    margin-left: 65px;
+
+}
+
+.coin {
+    animation-name: coin;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+}
+
+@keyframes coin {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+/*-----------------------------------------Media Queries----------------------------------*/
+
+@media (max-width:600px) {
+    .gridContainer {
+        display: grid;
+        grid-template-areas: 'header header header'
+            'article article article'
+            'left left left'
+            'right right right'
+            'vault vault vault'
+            'animacion animacion animacion'
+            'footer footer footer';
+        gap: 10px;
+    }
+
+    .main>div {
+        display: flex;
+        flex-flow: column wrap;
+        margin: 5px;
+        border: solid green;
+        width: 300px;
+        background-color: orange;
+    }
+
+    .main,
+    img {
+        width: 100%;
+        padding: 2px;
+    }
+
+    .comunidadContainer {
+        display: grid;
+        grid-template-areas:
+            'header'
+            'titulo'
+            'comuMain'
+            'instagram'
+            'facebook'
+            'twitter'
+            'footer';
+    }
+}
