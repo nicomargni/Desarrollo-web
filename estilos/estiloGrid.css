@@ -12,26 +12,10 @@ body {
 
 /*------------------Grid y Flex-------------*/
 /*Index*/
-.gridContainer {
-    display: grid;
-    grid-template-areas: 'header header header'
-        'article left right'
-        'article left vault'
-        'animacion animacion animacion'
-        'footer footer footer';
-    gap: 10px;
+.mainA{
+    margin: 10px;
 }
-
-.gridContainer>* {
-    border: 1px solid black;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.header {
+.navegacion {
     display: flex;
     flex-direction: row;
     grid-area: header;
@@ -42,12 +26,12 @@ body {
     background-size: contain;
 }
 
-.header>* {
+.navegacion>* {
     transform: rotate(-20deg);
     transition: 2s;
 }
 
-.header>*:hover {
+.navegacion>*:hover {
     color: rgb(128, 83, 0);
     transform: scale(1.2);
 }
@@ -61,7 +45,8 @@ body {
 
 .left {
     display: flex;
-    align-items: flex-start;
+    color: white;
+    align-items: center;
     flex-direction: column;
     grid-area: left;
     background-image: url(../imagenes/lanzRecientes.jpg);
@@ -80,7 +65,6 @@ body {
 
 .vaultBoy {
     display: flex;
-    grid-area: vault;
     background-image: url(../imagenes/vault-boy.jpg);
     background-size: contain;
     justify-content: center;
@@ -88,40 +72,26 @@ body {
     text-align: center;
 }
 
-/*Galeria*/
-.galeriaContainer {
-    display: grid;
-    color: orange;
-    grid-template-areas: 'header'
-        'titulo'
-        'galeria'
-        'footer';
-}
+/*-------------------------------------------------------Galeria---------------------------------------*/
 
-.tituloGaleria {
+.tituloG {
     display: flex;
     justify-content: center;
-    grid-area: titulo;
     color: darkgreen;
 }
 
 .main {
-    grid-area: galeria;
-}
-
-.main>div {
     display: flex;
-    flex-flow: row wrap;
-    margin: 5px;
-    border: solid green;
-    width: 1000px;
-    background-color: orange;
+    justify-content: center;
 }
-
-.main,
-img {
-    width: 20%;
-    padding: 2px;
+.carouselGaleria{
+    margin-bottom: 10px;
+}
+.carouselGaleria,
+img{
+    width: 400px;
+    height: 500px;
+    max-height: 500px;
 }
 
 /*-----------------------------------------Contactanos---------------------------------------*/
@@ -138,23 +108,13 @@ img {
 }
 
 /*-----------------------------------------Comunidad-------------------------------------*/
-.comunidadContainer {
-    display: grid;
-    grid-template-areas: 'header header header'
-        'titulo titulo titulo'
-        'comuMain comuMain comuMain'
-        'instagram facebook twitter'
-        'footer footer footer';
-}
 
 .comunidadMain {
     background-image: linear-gradient(to left, white, yellow);
     border: 1px solid black;
-    grid-area: comuMain;
 }
 
 .instagram {
-    grid-area: instagram;
     margin-top: 10px;
     background-image: url(../imagenes/instagram.jpg);
     background-size: cover;
@@ -163,7 +123,6 @@ img {
 }
 
 .facebook {
-    grid-area: facebook;
     margin-top: 10px;
     background-image: url(../imagenes/facebook.png);
     background-size: cover;
@@ -172,7 +131,6 @@ img {
 }
 
 .twitter {
-    grid-area: twitter;
     margin-top: 10px;
     background-image: url(../imagenes/twitterlogo.png);
     background-size: cover;
@@ -183,7 +141,10 @@ img {
 .tituloComunidad {
     display: flex;
     justify-content: center;
-    grid-area: titulo;
+}
+.redes{
+    display: flex;
+    justify-content: center;
 }
 
 /* ----------------------------------------Animaciones------------------------------------*/
@@ -195,7 +156,6 @@ img {
     align-content: center;
     grid-area: animacion;
     border: none;
-    margin-left: 65px;
 
 }
 
@@ -205,6 +165,11 @@ img {
     animation-duration: 2s;
     animation-timing-function: linear;
     animation-direction: alternate;
+}
+.coin,
+img{
+    width: 40px;
+    height: 40px;
 }
 
 @keyframes coin {
@@ -216,46 +181,18 @@ img {
         opacity: 0;
     }
 }
+/*----------------------------------------- Info -----------------------------------------*/
+
+.mainInfo{
+    border: 2px solid blue;
+}
+.objetivosInfo{
+    border: 1px solid black;
+}
+.logrosInfo{
+    border: 1px solid black;
+}
+
 
 /*-----------------------------------------Media Queries----------------------------------*/
 
-@media (max-width:600px) {
-    .gridContainer {
-        display: grid;
-        grid-template-areas: 'header header header'
-            'article article article'
-            'left left left'
-            'right right right'
-            'vault vault vault'
-            'animacion animacion animacion'
-            'footer footer footer';
-        gap: 10px;
-    }
-
-    .main>div {
-        display: flex;
-        flex-flow: column wrap;
-        margin: 5px;
-        border: solid green;
-        width: 300px;
-        background-color: orange;
-    }
-
-    .main,
-    img {
-        width: 100%;
-        padding: 2px;
-    }
-
-    .comunidadContainer {
-        display: grid;
-        grid-template-areas:
-            'header'
-            'titulo'
-            'comuMain'
-            'instagram'
-            'facebook'
-            'twitter'
-            'footer';
-    }
-}
