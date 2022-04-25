@@ -53,13 +53,16 @@ body {
 }
 
 .right {
-    grid-area: right;
     background-image: url(../imagenes/reseñas.jpg);
     background-size: contain;
 }
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .footer {
-    grid-area: footer;
     background-color: rgb(2, 92, 2);
 }
 
@@ -87,21 +90,20 @@ body {
 .carouselGaleria{
     margin-bottom: 10px;
 }
-.carouselGaleria,
+.carousel-item>
 img{
-    width: 400px;
-    height: 500px;
-    max-height: 500px;
+    margin-left: 300px;
+    max-width: 400px;
+    height: 400px;
+}
+@media (max-width: 600px){
+    .carousel-item>
+    img{
+        margin-left: 30px;
+    }
 }
 
 /*-----------------------------------------Contactanos---------------------------------------*/
-.contactoContainer {
-    display: grid;
-    grid-template-areas: 'header'
-        'formulario'
-        'footer';
-}
-
 .form {
     grid-area: formulario;
     border: solid green;
@@ -166,8 +168,7 @@ img{
     animation-timing-function: linear;
     animation-direction: alternate;
 }
-.coin,
-img{
+.coin> img{
     width: 40px;
     height: 40px;
 }
